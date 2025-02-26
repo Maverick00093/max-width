@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+    <style>
+      @media screen and (max-width: 1920px) {
+        * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+        }
+        body {
+          --color1: #008374;
+          --btnColor1: #639993e3;
+          --textColor: ivory;
+        }
+        .one {
+          height: 150px;
+          width: 100%;
+          background-color: var(--color1);
+        }
+        .first {
+          height: 50px;
+          width: 100%;
+          background-color: #036b5f;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: fixed;
+          top: 0;
+          z-index: 2000;
+        }
+        .content {
+          width: 70%;
+          height: inherit;
+          display: flex;
+          justify-content: space-between;
+        }
+        .left {
+          width: 25%;
+          height: inherit;
+          display: flex;
+          align-items: center;
+        }
+        .left i {
+          width: 10%;
+        }
+        .left a {
+          width: 40%;
+          color: var(--textColor);
+          text-decoration: none;
+        }
+        .left p {
+          color: var(--textColor);
+        }
+        .right {
+          height: inherit;
+          width: 15%;
+          display: flex;
+          align-items: center;
+        }
+        .logos {
+          width: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .logo i {
+          cursor: pointer;
+        }
+        .nav {
+          height: 80px;
+          width: 100%;
+          background-color: var(--color1);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: fixed;
+          z-index: 2000;
+          top: 50px;
+        }
+        .head {
+          width: 70%;
+          height: inherit;
+          display: flex;
+          justify-content: space-between;
+        }
+        .name {
+          height: inherit;
+          width: 15%;
+          color: var(--textColor);
+          font-size: 40px;
+          display: flex;
+          align-items: center;
+        }
+        .links {
+          height: inherit;
+          width: 60%;
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+        }
+        .lnk {
+          /* height: inherit; */
+          width: 12%;
+          display: flex;
+          justify-content: center;
+          color: var(--textColor);
+          cursor: pointer;
+          font-size: 20px;
+        }
+        .two {
+          height: 500px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          background-color: var(--color1);
+        }
+        .main {
+          height: 600px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+        }
+        .det {
+          height: 400px;
+          width: 70%;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-between;
+          background-color: var(--color1);
+        }
+        .txt {
+          height: 280px;
+          width: 50%;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+        }
+        .txt1 {
+          height: 100px;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          font-size: 50px;
+          color: var(--textColor);
+        }
+        .txt2 {
+          height: 50px;
+          width: 100%;
+          display: flex;
+          align-items: center;
+          font-size: 19px;
+          color: var(--textColor);
+        }
+        .btns {
+          width: 60%;
+          height: 80px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        #start {
+          background-color: var(--btnColor1);
+          color: var(--textColor);
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+          font-size: 20px;
+          border-radius: 50px;
+        }
+        #video {
+          background-color: transparent;
+          color: var(--textColor);
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+          font-size: 20px;
+          border-radius: 50px;
+        }
+        #video i {
+          margin-right: 10px;
+        }
+        .img {
+          height: 400px;
+          width: 50%;
+        }
+        .boxes {
+          height: 250px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          position: absolute;
+          bottom: 15%;
+        }
+        .bx {
+          height: inherit;
+          width: 70%;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-between;
+          z-index: 100;
+        }
+        .bx1,
+        .bx2,
+        .bx3,
+        .bx4 {
+          width: 23%;
+          height: 250px;
+          background-color: var(--color1);
+          border-radius: 10px;
+          box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.413);
+        }
+        .bimg {
+          height: 125px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .btxt {
+          height: 125px;
+          width: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: start;
+          font-size: 25px;
+          font-weight: 600;
+          color: var(--textColor);
+        }
+        .hamburger {
+          height: inherit;
+          width: 5%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          display: none;
+        }
+        @media screen and (max-width: 768px) {
+          .first {
+            height: 100px;
+            width: 100%;
+          }
+          .content {
+            width: 90%;
+          }
+          .left {
+            width: 60%;
+            overflow-y: hidden;
+          }
+          .nav {
+            height: 80px;
+            width: 100%;
+            top: 100px;
+          }
+          .left a,
+          p {
+            font-size: 18px;
+          }
+          .right {
+            width: 30%;
+          }
+          .head {
+            width: 90%;
+          }
+          .links {
+            display: none;
+          }
+          .hamburger {
+            display: block;
+            height: inherit;
+            width: 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .two {
+            height: 1440px;
+            width: 100%;
+          }
+          .main {
+            height: 1400px;
+          }
+          .det {
+            height: 800px;
+            width: 90%;
+          }
+          .txt {
+            height: 280px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+            top: 60%;
+          }
+          .btns {
+            width: 60%;
+          }
+          .img {
+            height: 450px;
+            width: 100%;
+            position: relative;
+            bottom: 30%;
+          }
+          .img img {
+            width: 100%;
+            /* height: 100%; */
+          }
+          .boxes {
+            height: 250px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 125%;
+          }
+          .bx {
+            height: 550px;
+            width: 90%;
+          }
+          .bx1,
+          .bx2,
+          .bx3,
+          .bx4 {
+            width: 48%;
+          }
+        }
+        @media screen and (max-width: 481px) {
+          * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+          }
+          body {
+            --color1: #008374;
+            --btnColor1: #639993e3;
+            --textColor: ivory;
+          }
+          .one {
+            height: 150px;
+            width: 100%;
+            background-color: var(--color1);
+          }
+          .first {
+            height: 100px;
+            width: 100%;
+            background-color: #036b5f;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            z-index: 2000;
+          }
+          .content {
+            width: 90%;
+            height: inherit;
+            display: flex;
+            justify-content: space-between;
+          }
+          .left {
+            width: 100%;
+            overflow-y: hidden;
+            height: inherit;
+            display: flex;
+            align-items: center;
+          }
+          .left i {
+            width: 10%;
+          }
+          .left a {
+            width: 40%;
+            color: var(--textColor);
+            text-decoration: none;
+            font-size: 18px;
+          }
+          .left p {
+            color: var(--textColor);
+            font-size: 18px;
+          }
+
+          .right {
+            height: inherit;
+            width: 15%;
+            display: flex;
+            align-items: center;
+            display: none;
+          }
+          .logos {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          .logo i {
+            cursor: pointer;
+          }
+          .nav {
+            height: 80px;
+            width: 100%;
+            background-color: var(--color1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 100px;
+            z-index: 2000;
+          }
+          .head {
+            width: 90%;
+            height: inherit;
+            display: flex;
+            justify-content: space-between;
+          }
+          .name {
+            height: inherit;
+            width: 15%;
+            color: var(--textColor);
+            font-size: 40px;
+            display: flex;
+            align-items: center;
+          }
+          .links {
+            height: inherit;
+            width: 60%;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            display: none;
+          }
+          .lnk {
+            /* height: inherit; */
+            width: 12%;
+            display: flex;
+            justify-content: center;
+            color: var(--textColor);
+            cursor: pointer;
+            font-size: 20px;
+          }
+          .hamburger {
+            display: block;
+            height: inherit;
+            width: 5%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          .two {
+            height: 2000px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            background-color: var(--color1);
+          }
+          .main {
+            height: 2000px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+          }
+          .det {
+            height: 800px;
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--color1);
+          }
+          .txt {
+            height: 280px;
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            position: relative;
+            top: 60%;
+          }
+          .txt1 {
+            height: 100px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 50px;
+            color: var(--textColor);
+          }
+          .txt2 {
+            height: 50px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 19px;
+            color: var(--textColor);
+          }
+          .btns {
+            width: 100%;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+          }
+          #start {
+            background-color: var(--btnColor1);
+            color: var(--textColor);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50px;
+          }
+          #video {
+            background-color: transparent;
+            color: var(--textColor);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 50px;
+          }
+          #video i {
+            margin-right: 10px;
+          }
+          .img {
+            height: 400px;
+            width: 100%;
+            position: relative;
+            bottom: 30%;
+          }
+          .img img {
+            width: 100%;
+          }
+          .boxes {
+            height: 250px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 125%;
+          }
+          .bx {
+            height: 1100px;
+            width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            z-index: 100;
+          }
+          .bx1,
+          .bx2,
+          .bx3,
+          .bx4 {
+            width: 90%;
+            height: 250px;
+            background-color: var(--color1);
+            border-radius: 10px;
+            box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.413);
+          }
+          .bimg {
+            height: 125px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .btxt {
+            height: 125px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: start;
+            font-size: 25px;
+            font-weight: 600;
+            color: var(--textColor);
+          }
+        }
+      }
+    </style>
+    <!-- <link rel="stylesheet" href="tab.css" /> -->
+    <!-- <link rel="stylesheet" href="mob.css" /> -->
+  </head>
+  <body>
+    <div class="one">
+      <div class="first">
+        <div class="content">
+          <div class="left">
+            <i class="fa-regular fa-envelope fa-xl" style="color: #ffffff"></i>
+            <a href="#">contact@exp.com</a>
+            <i
+              class="fa-solid fa-mobile-screen fa-xl"
+              style="color: #ffffff"
+            ></i>
+            <p>+1 5589 55488 55</p>
+          </div>
+          <div class="right">
+            <div class="logos">
+              <div class="logo">
+                <i
+                  class="fa-brands fa-x-twitter fa-xl"
+                  style="color: #ffffff"
+                ></i>
+              </div>
+              <div class="logo">
+                <i
+                  class="fa-brands fa-facebook fa-xl"
+                  style="color: #ffffff"
+                ></i>
+              </div>
+              <div class="logo">
+                <i
+                  class="fa-brands fa-instagram fa-xl"
+                  style="color: #ffffff"
+                ></i>
+              </div>
+              <div class="logo">
+                <i
+                  class="fa-brands fa-linkedin fa-xl"
+                  style="color: #ffffff"
+                ></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nav">
+        <div class="head">
+          <div class="name">Impact</div>
+          <div class="links">
+            <div class="lnk">Home</div>
+            <div class="lnk">About</div>
+            <div class="lnk">Services</div>
+            <div class="lnk">Portfolio</div>
+            <div class="lnk">Team</div>
+            <div class="lnk">Blog</div>
+            <div class="lnk">Dropdown</div>
+            <div class="lnk">Contact</div>
+          </div>
+          <div class="hamburger">
+            <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="two">
+      <div class="main">
+        <div class="det">
+          <div class="txt">
+            <div class="txt1">Welcome to Impact</div>
+            <div class="txt2">
+              Sed autem laudantium dolores. Voluptatem itaque ea consequatur
+              eveniet. Eum quas beatae cumque eum quaerat.
+            </div>
+            <div class="btns">
+              <button id="start">GET START</button>
+              <button id="video">
+                <i
+                  class="fa-regular fa-circle-play fa-xl"
+                  style="color: #ffffff"
+                ></i
+                >Watch Video
+              </button>
+            </div>
+          </div>
+          <div class="img"><img src="download.svg" alt="" /></div>
+        </div>
+      </div>
+    </div>
+    <div class="boxes">
+      <div class="bx">
+        <div class="bx1">
+          <div class="bimg">
+            <i class="fa-solid fa-chalkboard fa-2xl" style="color: #ffffff"></i>
+          </div>
+          <div class="btxt">Lorem Ipsum</div>
+        </div>
+        <div class="bx2">
+          <div class="bimg">
+            <i class="fa-regular fa-gem fa-2xl" style="color: #ffffff"></i>
+          </div>
+          <div class="btxt">Sed ut perspiciatis</div>
+        </div>
+        <div class="bx3">
+          <div class="bimg">
+            <i
+              class="fa-solid fa-location-dot fa-2xl"
+              style="color: #ffffff"
+            ></i>
+          </div>
+          <div class="btxt">Magni Dolores</div>
+        </div>
+        <div class="bx4">
+          <div class="bimg">
+            <i class="fa-solid fa-campground fa-2xl" style="color: #ffffff"></i>
+          </div>
+          <div class="btxt">Nemo Enim</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
