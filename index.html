@@ -1,624 +1,730 @@
 <!DOCTYPE html>
+<!-- Declares the document type as HTML5 -->
 <html lang="en">
+  <!-- Root element of the HTML page, sets language to English -->
   <head>
+    <!-- Contains metadata and document information -->
     <meta charset="UTF-8" />
+    <!-- Sets character encoding to UTF-8 for broad character support -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ensures responsive design by setting viewport to device width and initial zoom to 1 -->
     <title>Document</title>
+    <!-- Sets the title of the webpage displayed in the browser tab -->
+    <!-- Links to an external Font Awesome stylesheet for icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
     />
     <style>
+      /* Defines internal CSS styles for the webpage */
+      /* Media query targeting screens up to 1920px wide (desktop layout) */
       @media screen and (max-width: 1920px) {
+        /* Applies to all elements for consistent styling */
         * {
-          margin: 0;
-          padding: 0;
-          box-sizing: border-box;
+          margin: 0; /* Removes default margins */
+          padding: 0; /* Removes default padding */
+          box-sizing: border-box; /* Ensures padding and borders are included in element dimensions */
         }
+        /* Styles for the body element, defines CSS custom properties (variables) */
         body {
-          --color1: #008374;
-          --btnColor1: #639993e3;
-          --textColor: ivory;
+          --color1: #008374; /* Primary background color (teal) */
+          --btnColor1: #639993e3; /* Button background color (semi-transparent teal) */
+          --textColor: ivory; /* Text color for readability against dark backgrounds */
         }
+        /* Container for header section */
         .one {
-          height: 150px;
-          width: 100%;
-          background-color: var(--color1);
+          height: 150px; /* Fixed height for header area */
+          width: 100%; /* Full width of the viewport */
+          background-color: var(--color1); /* Uses primary teal color */
         }
+        /* Top bar section with contact info and social icons */
         .first {
-          height: 50px;
-          width: 100%;
-          background-color: #036b5f;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          position: fixed;
-          top: 0;
-          z-index: 2000;
+          height: 50px; /* Fixed height for top bar */
+          width: 100%; /* Full width of the viewport */
+          background-color: #036b5f; /* Slightly darker teal for contrast */
+          display: flex; /* Flexbox for horizontal alignment */
+          align-items: center; /* Vertically centers content */
+          justify-content: center; /* Horizontally centers content */
+          position: fixed; /* Fixes position at the top of the viewport */
+          top: 0; /* Aligns to the top edge */
+          z-index: 2000; /* High z-index to ensure it stays above other elements */
         }
+        /* Container for top bar content (contact and social icons) */
         .content {
-          width: 70%;
-          height: inherit;
-          display: flex;
-          justify-content: space-between;
+          width: 70%; /* Limits width to 70% of the viewport for spacing */
+          height: inherit; /* Inherits height from parent (.first) */
+          display: flex; /* Flexbox for layout */
+          justify-content: space-between; /* Spaces children evenly */
         }
+        /* Left section of top bar (email and phone) */
         .left {
-          width: 25%;
-          height: inherit;
-          display: flex;
-          align-items: center;
+          width: 25%; /* Takes up 25% of .content width */
+          height: inherit; /* Inherits height from parent */
+          display: flex; /* Flexbox for alignment */
+          align-items: center; /* Centers items vertically */
         }
+        /* Styles for icons in the left section */
         .left i {
-          width: 10%;
+          width: 10%; /* Limits icon width */
         }
+        /* Styles for email link in the left section */
         .left a {
-          width: 40%;
-          color: var(--textColor);
-          text-decoration: none;
+          width: 40%; /* Limits link width */
+          color: var(--textColor); /* Uses ivory text color */
+          text-decoration: none; /* Removes underline from link */
         }
+        /* Styles for phone number in the left section */
         .left p {
-          color: var(--textColor);
+          color: var(--textColor); /* Uses ivory text color */
         }
+        /* Right section of top bar (social media icons) */
         .right {
-          height: inherit;
-          width: 15%;
-          display: flex;
-          align-items: center;
+          height: inherit; /* Inherits height from parent */
+          width: 15%; /* Takes up 15% of .content width */
+          display: flex; /* Flexbox for alignment */
+          align-items: center; /* Centers items vertically */
         }
+        /* Container for social media logos */
         .logos {
-          width: 100%;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+          width: 100%; /* Full width of .right */
+          display: flex; /* Flexbox for layout */
+          align-items: center; /* Centers icons vertically */
+          justify-content: space-between; /* Distributes icons evenly */
         }
+        /* Styles for individual social media icons */
         .logo i {
-          cursor: pointer;
+          cursor: pointer; /* Changes cursor to pointer on hover for interactivity */
         }
+        /* Navigation bar section */
         .nav {
-          height: 80px;
-          width: 100%;
-          background-color: var(--color1);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: fixed;
-          z-index: 2000;
-          top: 50px;
+          height: 80px; /* Fixed height for navigation */
+          width: 100%; /* Full width of the viewport */
+          background-color: var(--color1); /* Uses primary teal color */
+          display: flex; /* Flexbox for centering */
+          justify-content: center; /* Centers content horizontally */
+          align-items: center; /* Centers content vertically */
+          position: fixed; /* Fixes position below top bar */
+          z-index: 2000; /* High z-index to stay above other elements */
+          top: 50px; /* Positions below .first (50px height) */
         }
+        /* Container for navigation content */
         .head {
-          width: 70%;
-          height: inherit;
-          display: flex;
-          justify-content: space-between;
+          width: 70%; /* Limits width to 70% of viewport */
+          height: inherit; /* Inherits height from parent */
+          display: flex; /* Flexbox for layout */
+          justify-content: space-between; /* Spaces children (name and links) evenly */
         }
+        /* Website name/logo section */
         .name {
-          height: inherit;
-          width: 15%;
-          color: var(--textColor);
-          font-size: 40px;
-          display: flex;
-          align-items: center;
+          height: inherit; /* Inherits height from parent */
+          width: 15%; /* Takes up 15% of .head width */
+          color: var(--textColor); /* Uses ivory text color */
+          font-size: 40px; /* Large font size for prominence */
+          display: flex; /* Flexbox for centering */
+          align-items: center; /* Centers text vertically */
         }
+        /* Container for navigation links */
         .links {
-          height: inherit;
-          width: 60%;
-          display: flex;
-          align-items: center;
-          justify-content: space-evenly;
+          height: inherit; /* Inherits height from parent */
+          width: 60%; /* Takes up 60% of .head width */
+          display: flex; /* Flexbox for horizontal layout */
+          align-items: center; /* Centers links vertically */
+          justify-content: space-evenly; /* Distributes links evenly */
         }
+        /* Individual navigation link styling */
         .lnk {
-          /* height: inherit; */
-          width: 12%;
-          display: flex;
-          justify-content: center;
-          color: var(--textColor);
-          cursor: pointer;
-          font-size: 20px;
+          width: 12%; /* Limits width of each link */
+          display: flex; /* Flexbox for centering text */
+          justify-content: center; /* Centers text horizontally */
+          color: var(--textColor); /* Uses ivory text color */
+          cursor: pointer; /* Indicates clickable item */
+          font-size: 20px; /* Sets font size for readability */
         }
+        /* Hero section container */
         .two {
-          height: 500px;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          background-color: var(--color1);
+          height: 500px; /* Fixed height for hero section */
+          width: 100%; /* Full width of the viewport */
+          display: flex; /* Flexbox for centering */
+          justify-content: center; /* Centers content horizontally */
+          background-color: var(--color1); /* Uses primary teal color */
         }
+        /* Main content wrapper in hero section */
         .main {
-          height: 600px;
-          width: 100%;
-          display: flex;
-          justify-content: center;
+          height: 600px; /* Slightly taller than .two for overlap */
+          width: 100%; /* Full width of the viewport */
+          display: flex; /* Flexbox for centering */
+          justify-content: center; /* Centers content horizontally */
         }
+        /* Detailed content area in hero section */
         .det {
-          height: 400px;
-          width: 70%;
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: space-between;
-          background-color: var(--color1);
+          height: 400px; /* Fixed height for content */
+          width: 70%; /* Limits width to 70% of viewport */
+          display: flex; /* Flexbox for layout */
+          flex-wrap: wrap; /* Allows wrapping for responsiveness */
+          align-items: center; /* Centers items vertically */
+          justify-content: space-between; /* Spaces text and image evenly */
+          background-color: var(--color1); /* Uses primary teal color */
         }
+        /* Text container in hero section */
         .txt {
-          height: 280px;
-          width: 50%;
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
+          height: 280px; /* Fixed height for text area */
+          width: 50%; /* Takes up half of .det width */
+          display: flex; /* Flexbox for layout */
+          flex-wrap: wrap; /* Allows wrapping of text elements */
+          align-items: center; /* Centers items vertically */
         }
+        /* Main heading in hero section */
         .txt1 {
-          height: 100px;
-          width: 100%;
-          display: flex;
-          align-items: center;
-          font-size: 50px;
-          color: var(--textColor);
+          height: 100px; /* Fixed height for heading */
+          width: 100%; /* Full width of .txt */
+          display: flex; /* Flexbox for alignment */
+          align-items: center; /* Centers text vertically */
+          font-size: 50px; /* Large font size for emphasis */
+          color: var(--textColor); /* Uses ivory text color */
         }
+        /* Subtext in hero section */
         .txt2 {
-          height: 50px;
-          width: 100%;
-          display: flex;
-          align-items: center;
-          font-size: 19px;
-          color: var(--textColor);
+          height: 50px; /* Fixed height for subtext */
+          width: 100%; /* Full width of .txt */
+          display: flex; /* Flexbox for alignment */
+          align-items: center; /* Centers text vertically */
+          font-size: 19px; /* Medium font size for readability */
+          color: var(--textColor); /* Uses ivory text color */
         }
+        /* Container for buttons in hero section */
         .btns {
-          width: 60%;
-          height: 80px;
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
+          width: 60%; /* Limits width to 60% of .txt */
+          height: 80px; /* Fixed height for buttons */
+          display: flex; /* Flexbox for layout */
+          align-items: center; /* Centers buttons vertically */
+          justify-content: space-between; /* Spaces buttons evenly */
         }
+        /* "Get Started" button styling */
         #start {
-          background-color: var(--btnColor1);
-          color: var(--textColor);
-          border: none;
-          padding: 10px 20px;
-          cursor: pointer;
-          font-size: 20px;
-          border-radius: 50px;
+          background-color: var(--btnColor1); /* Uses semi-transparent teal */
+          color: var(--textColor); /* Uses ivory text color */
+          border: none; /* Removes default border */
+          padding: 10px 20px; /* Adds padding for size */
+          cursor: pointer; /* Indicates clickable item */
+          font-size: 20px; /* Sets font size */
+          border-radius: 50px; /* Rounds corners for pill shape */
         }
+        /* "Watch Video" button styling */
         #video {
-          background-color: transparent;
-          color: var(--textColor);
-          border: none;
-          padding: 10px 20px;
-          cursor: pointer;
-          font-size: 20px;
-          border-radius: 50px;
+          background-color: transparent; /* No background color */
+          color: var(--textColor); /* Uses ivory text color */
+          border: none; /* Removes default border */
+          padding: 10px 20px; /* Adds padding for size */
+          cursor: pointer; /* Indicates clickable item */
+          font-size: 20px; /* Sets font size */
+          border-radius: 50px; /* Rounds corners for pill shape */
         }
+        /* Icon inside "Watch Video" button */
         #video i {
-          margin-right: 10px;
+          margin-right: 10px; /* Adds space between icon and text */
         }
+        /* Image container in hero section */
         .img {
-          height: 400px;
-          width: 50%;
+          height: 400px; /* Fixed height for image */
+          width: 50%; /* Takes up half of .det width */
         }
+        /* Container for feature boxes section */
         .boxes {
-          height: 250px;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          position: absolute;
-          bottom: 15%;
+          height: 250px; /* Fixed height for boxes */
+          width: 100%; /* Full width of the viewport */
+          display: flex; /* Flexbox for centering */
+          justify-content: center; /* Centers content horizontally */
+          position: absolute; /* Positions relative to viewport */
+          bottom: 15%; /* Places 15% from bottom of viewport */
         }
+        /* Wrapper for individual feature boxes */
         .bx {
-          height: inherit;
-          width: 70%;
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: space-between;
-          z-index: 100;
+          height: inherit; /* Inherits height from .boxes */
+          width: 70%; /* Limits width to 70% of viewport */
+          display: flex; /* Flexbox for layout */
+          flex-wrap: wrap; /* Allows wrapping for responsiveness */
+          justify-content: space-between; /* Spaces boxes evenly */
+          z-index: 100; /* Ensures boxes appear above other content */
         }
+        /* Styling for each feature box */
         .bx1,
         .bx2,
         .bx3,
         .bx4 {
-          width: 23%;
-          height: 250px;
-          background-color: var(--color1);
-          border-radius: 10px;
-          box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.413);
+          width: 23%; /* Each box takes up 23% of .bx width */
+          height: 250px; /* Fixed height for consistency */
+          background-color: var(--color1); /* Uses primary teal color */
+          border-radius: 10px; /* Rounds corners */
+          box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.413); /* Adds shadow for depth */
         }
+        /* Image/icon area in each feature box */
         .bimg {
-          height: 125px;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
+          height: 125px; /* Half of box height for icon */
+          width: 100%; /* Full width of box */
+          display: flex; /* Flexbox for centering */
+          justify-content: center; /* Centers icon horizontally */
+          align-items: center; /* Centers icon vertically */
         }
+        /* Text area in each feature box */
         .btxt {
-          height: 125px;
-          width: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: start;
-          font-size: 25px;
-          font-weight: 600;
-          color: var(--textColor);
+          height: 125px; /* Half of box height for text */
+          width: 100%; /* Full width of box */
+          display: flex; /* Flexbox for alignment */
+          justify-content: center; /* Centers text horizontally */
+          align-items: start; /* Aligns text to top */
+          font-size: 25px; /* Sets font size for emphasis */
+          font-weight: 600; /* Makes text bold */
+          color: var(--textColor); /* Uses ivory text color */
         }
+        /* Hamburger menu container (hidden by default on desktop) */
         .hamburger {
-          height: inherit;
-          width: 5%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          display: none;
+          height: inherit; /* Inherits height from parent */
+          width: 5%; /* Takes up 5% of .head width */
+          display: flex; /* Flexbox for centering */
+          align-items: center; /* Centers icon vertically */
+          justify-content: center; /* Centers icon horizontally */
+          display: none; /* Hidden on desktop */
         }
+        /* Media query for tablets (max-width: 768px) */
         @media screen and (max-width: 768px) {
+          /* Adjust top bar height for smaller screens */
           .first {
-            height: 100px;
-            width: 100%;
+            height: 100px; /* Increases height for better spacing */
+            width: 100%; /* Full width of viewport */
           }
+          /* Adjust content container width */
           .content {
-            width: 90%;
+            width: 90%; /* Wider container for smaller screens */
           }
+          /* Adjust left section width */
           .left {
-            width: 60%;
-            overflow-y: hidden;
+            width: 60%; /* Takes up more space */
+            overflow-y: hidden; /* Prevents vertical overflow */
           }
+          /* Adjust navigation bar position */
           .nav {
-            height: 80px;
-            width: 100%;
-            top: 100px;
+            height: 80px; /* Maintains height */
+            width: 100%; /* Full width */
+            top: 100px; /* Moves below taller .first */
           }
+          /* Adjust font size for contact info */
           .left a,
           p {
-            font-size: 18px;
+            font-size: 18px; /* Slightly smaller for readability */
           }
+          /* Adjust right section width */
           .right {
-            width: 30%;
+            width: 30%; /* Wider for social icons */
           }
+          /* Adjust navigation container width */
           .head {
-            width: 90%;
+            width: 90%; /* Wider container */
           }
+          /* Hide navigation links */
           .links {
-            display: none;
+            display: none; /* Hidden on tablet */
           }
+          /* Show hamburger menu */
           .hamburger {
-            display: block;
-            height: inherit;
-            width: 5%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block; /* Visible on tablet */
+            height: inherit; /* Inherits height */
+            width: 5%; /* Maintains width */
+            display: flex; /* Flexbox for centering */
+            align-items: center; /* Centers icon vertically */
+            justify-content: center; /* Centers icon horizontally */
           }
+          /* Adjust hero section height */
           .two {
-            height: 1440px;
-            width: 100%;
+            height: 1440px; /* Taller for stacking content */
+            width: 100%; /* Full width */
           }
+          /* Adjust main wrapper height */
           .main {
-            height: 1400px;
+            height: 1400px; /* Matches .two adjustments */
           }
+          /* Adjust detailed content area */
           .det {
-            height: 800px;
-            width: 90%;
+            height: 800px; /* Taller for stacking */
+            width: 90%; /* Wider container */
           }
+          /* Adjust text container */
           .txt {
-            height: 280px;
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            position: relative;
-            top: 60%;
+            height: 280px; /* Maintains height */
+            width: 100%; /* Full width for stacking */
+            display: flex; /* Flexbox for layout */
+            flex-wrap: wrap; /* Allows wrapping */
+            align-items: center; /* Centers vertically */
+            position: relative; /* Positions relative to parent */
+            top: 60%; /* Moves down for layout */
           }
+          /* Adjust buttons container width */
           .btns {
-            width: 60%;
+            width: 60%; /* Maintains width */
           }
+          /* Adjust image container */
           .img {
-            height: 450px;
-            width: 100%;
-            position: relative;
-            bottom: 30%;
+            height: 450px; /* Taller for visibility */
+            width: 100%; /* Full width for stacking */
+            position: relative; /* Positions relative to parent */
+            bottom: 30%; /* Moves up for layout */
           }
+          /* Ensure image scales properly */
           .img img {
-            width: 100%;
-            /* height: 100%; */
+            width: 100%; /* Full width of container */
           }
+          /* Adjust feature boxes position */
           .boxes {
-            height: 250px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            top: 125%;
+            height: 250px; /* Maintains height */
+            width: 100%; /* Full width */
+            display: flex; /* Flexbox for centering */
+            justify-content: center; /* Centers horizontally */
+            position: absolute; /* Absolute positioning */
+            top: 125%; /* Moves further down page */
           }
+          /* Adjust feature boxes wrapper */
           .bx {
-            height: 550px;
-            width: 90%;
+            height: 550px; /* Taller for two-row layout */
+            width: 90%; /* Wider container */
           }
+          /* Adjust individual feature boxes */
           .bx1,
           .bx2,
           .bx3,
           .bx4 {
-            width: 48%;
+            width: 48%; /* Two boxes per row */
           }
         }
+        /* Media query for mobile phones (max-width: 481px) */
         @media screen and (max-width: 481px) {
+          /* Reset styles for mobile consistency */
           * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0; /* Removes default margins */
+            padding: 0; /* Removes default padding */
+            box-sizing: border-box; /* Includes padding/borders in dimensions */
           }
+          /* Re-define CSS variables for clarity */
           body {
-            --color1: #008374;
-            --btnColor1: #639993e3;
-            --textColor: ivory;
+            --color1: #008374; /* Primary teal color */
+            --btnColor1: #639993e3; /* Button teal color */
+            --textColor: ivory; /* Ivory text color */
           }
+          /* Header section */
           .one {
-            height: 150px;
-            width: 100%;
-            background-color: var(--color1);
+            height: 150px; /* Fixed height */
+            width: 100%; /* Full width */
+            background-color: var(--color1); /* Teal background */
           }
+          /* Top bar section */
           .first {
-            height: 100px;
-            width: 100%;
-            background-color: #036b5f;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: fixed;
-            top: 0;
-            z-index: 2000;
+            height: 100px; /* Taller for spacing */
+            width: 100%; /* Full width */
+            background-color: #036b5f; /* Darker teal */
+            display: flex; /* Flexbox layout */
+            align-items: center; /* Centers vertically */
+            justify-content: center; /* Centers horizontally */
+            position: fixed; /* Fixed at top */
+            top: 0; /* Top edge */
+            z-index: 2000; /* Above other elements */
           }
+          /* Content container */
           .content {
-            width: 90%;
-            height: inherit;
-            display: flex;
-            justify-content: space-between;
+            width: 90%; /* Wider for mobile */
+            height: inherit; /* Inherits height */
+            display: flex; /* Flexbox layout */
+            justify-content: space-between; /* Spaces children */
           }
+          /* Left section (contact info) */
           .left {
-            width: 100%;
-            overflow-y: hidden;
-            height: inherit;
-            display: flex;
-            align-items: center;
+            width: 100%; /* Full width for stacking */
+            overflow-y: hidden; /* Prevents overflow */
+            height: inherit; /* Inherits height */
+            display: flex; /* Flexbox layout */
+            align-items: center; /* Centers vertically */
           }
+          /* Icons in left section */
           .left i {
-            width: 10%;
+            width: 10%; /* Limits width */
           }
+          /* Email link */
           .left a {
-            width: 40%;
-            color: var(--textColor);
-            text-decoration: none;
-            font-size: 18px;
+            width: 40%; /* Limits width */
+            color: var(--textColor); /* Ivory color */
+            text-decoration: none; /* No underline */
+            font-size: 18px; /* Smaller font */
           }
+          /* Phone number */
           .left p {
-            color: var(--textColor);
-            font-size: 18px;
+            color: var(--textColor); /* Ivory color */
+            font-size: 18px; /* Smaller font */
           }
-
+          /* Right section (social icons) */
           .right {
-            height: inherit;
-            width: 15%;
-            display: flex;
-            align-items: center;
-            display: none;
+            height: inherit; /* Inherits height */
+            width: 15%; /* Limited width */
+            display: flex; /* Flexbox layout */
+            align-items: center; /* Centers vertically */
+            display: none; /* Hidden on mobile */
           }
+          /* Social media logos container */
           .logos {
-            width: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            width: 100%; /* Full width */
+            display: flex; /* Flexbox layout */
+            align-items: center; /* Centers vertically */
+            justify-content: space-between; /* Spaces evenly */
           }
+          /* Individual social icons */
           .logo i {
-            cursor: pointer;
+            cursor: pointer; /* Clickable cursor */
           }
+          /* Navigation bar */
           .nav {
-            height: 80px;
-            width: 100%;
-            background-color: var(--color1);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: fixed;
-            top: 100px;
-            z-index: 2000;
+            height: 80px; /* Fixed height */
+            width: 100%; /* Full width */
+            background-color: var(--color1); /* Teal background */
+            display: flex; /* Flexbox layout */
+            justify-content: center; /* Centers horizontally */
+            align-items: center; /* Centers vertically */
+            position: fixed; /* Fixed position */
+            top: 100px; /* Below taller .first */
+            z-index: 2000; /* Above other elements */
           }
+          /* Navigation content container */
           .head {
-            width: 90%;
-            height: inherit;
-            display: flex;
-            justify-content: space-between;
+            width: 90%; /* Wider for mobile */
+            height: inherit; /* Inherits height */
+            display: flex; /* Flexbox layout */
+            justify-content: space-between; /* Spaces children */
           }
+          /* Website name/logo */
           .name {
-            height: inherit;
-            width: 15%;
-            color: var(--textColor);
-            font-size: 40px;
-            display: flex;
-            align-items: center;
+            height: inherit; /* Inherits height */
+            width: 15%; /* Limited width */
+            color: var(--textColor); /* Ivory color */
+            font-size: 40px; /* Large font */
+            display: flex; /* Flexbox layout */
+            align-items: center; /* Centers vertically */
           }
+          /* Navigation links container */
           .links {
-            height: inherit;
-            width: 60%;
-            display: flex;
-            align-items: center;
-            justify-content: space-evenly;
-            display: none;
+            height: inherit; /* Inherits height */
+            width: 60%; /* Limited width */
+            display: flex; /* Flexbox layout */
+            align-items: center; /* Centers vertically */
+            justify-content: space-evenly; /* Spaces evenly */
+            display: none; /* Hidden on mobile */
           }
+          /* Individual navigation link */
           .lnk {
-            /* height: inherit; */
-            width: 12%;
-            display: flex;
-            justify-content: center;
-            color: var(--textColor);
-            cursor: pointer;
-            font-size: 20px;
+            width: 12%; /* Limited width */
+            display: flex; /* Flexbox layout */
+            justify-content: center; /* Centers horizontally */
+            color: var(--textColor); /* Ivory color */
+            cursor: pointer; /* Clickable cursor */
+            font-size: 20px; /* Readable font */
           }
+          /* Hamburger menu */
           .hamburger {
-            display: block;
-            height: inherit;
-            width: 5%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: block; /* Visible on mobile */
+            height: inherit; /* Inherits height */
+            width: 5%; /* Limited width */
+            display: flex; /* Flexbox layout */
+            align-items: center; /* Centers vertically */
+            justify-content: center; /* Centers horizontally */
           }
+          /* Hero section */
           .two {
-            height: 2000px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            background-color: var(--color1);
+            height: 2000px; /* Much taller for stacking */
+            width: 100%; /* Full width */
+            display: flex; /* Flexbox layout */
+            justify-content: center; /* Centers horizontally */
+            background-color: var(--color1); /* Teal background */
           }
+          /* Main content wrapper */
           .main {
-            height: 2000px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
+            height: 2000px; /* Matches .two */
+            width: 100%; /* Full width */
+            display: flex; /* Flexbox layout */
+            justify-content: center; /* Centers horizontally */
           }
+          /* Detailed content area */
           .det {
-            height: 800px;
-            width: 90%;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--color1);
+            height: 800px; /* Taller for stacking */
+            width: 90%; /* Wider for mobile */
+            display: flex; /* Flexbox layout */
+            flex-wrap: wrap; /* Allows wrapping */
+            align-items: center; /* Centers vertically */
+            justify-content: space-between; /* Spaces evenly */
+            background-color: var(--color1); /* Teal background */
           }
+          /* Text container */
           .txt {
-            height: 280px;
-            width: 100%;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            position: relative;
-            top: 60%;
+            height: 280px; /* Fixed height */
+            width: 100%; /* Full width */
+            display: flex; /* Flexbox layout */
+            flex-wrap: wrap; /* Allows wrapping */
+            align-items: center; /* Centers vertically */
+            position: relative; /* Relative positioning */
+            top: 60%; /* Moves down */
           }
+          /* Main heading */
           .txt1 {
-            height: 100px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            font-size: 50px;
-            color: var(--textColor);
+            height: 100px; /* Fixed height */
+            width: 100%; /* Full width */
+            display: flex; /* Flexbox layout */
+            align-items: center; /* Centers vertically */
+            font-size: 50px; /* Large font */
+            color: var(--textColor); /* Ivory color */
           }
+          /* Subtext */
           .txt2 {
-            height: 50px;
-            width: 100%;
-            display: flex;
-            align-items: center;
-            font-size: 19px;
-            color: var(--textColor);
+            height: 50px; /* Fixed height */
+            width: 100%; /* Full width */
+            display: flex; /* Flexbox layout */
+            align-items: center; /* Centers vertically */
+            font-size: 19px; /* Readable font */
+            color: var(--textColor); /* Ivory color */
           }
+          /* Buttons container */
           .btns {
-            width: 100%;
-            height: 80px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            width: 100%; /* Full width */
+            height: 80px; /* Fixed height */
+            display: flex; /* Flexbox layout */
+            align-items: center; /* Centers vertically */
+            justify-content: space-between; /* Spaces evenly */
           }
+          /* "Get Started" button */
           #start {
-            background-color: var(--btnColor1);
-            color: var(--textColor);
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 20px;
-            border-radius: 50px;
+            background-color: var(--btnColor1); /* Teal background */
+            color: var(--textColor); /* Ivory text */
+            border: none; /* No border */
+            padding: 10px 20px; /* Padding for size */
+            cursor: pointer; /* Clickable cursor */
+            font-size: 20px; /* Readable font */
+            border-radius: 50px; /* Rounded corners */
           }
+          /* "Watch Video" button */
           #video {
-            background-color: transparent;
-            color: var(--textColor);
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 20px;
-            border-radius: 50px;
+            background-color: transparent; /* No background */
+            color: var(--textColor); /* Ivory text */
+            border: none; /* No border */
+            padding: 10px 20px; /* Padding for size */
+            cursor: pointer; /* Clickable cursor */
+            font-size: 20px; /* Readable font */
+            border-radius: 50px; /* Rounded corners */
           }
+          /* Icon in "Watch Video" button */
           #video i {
-            margin-right: 10px;
+            margin-right: 10px; /* Space before text */
           }
+          /* Image container */
           .img {
-            height: 400px;
-            width: 100%;
-            position: relative;
-            bottom: 30%;
+            height: 400px; /* Fixed height */
+            width: 100%; /* Full width */
+            position: relative; /* Relative positioning */
+            bottom: 30%; /* Moves up */
           }
+          /* Image scaling */
           .img img {
-            width: 100%;
+            width: 100%; /* Full width */
           }
+          /* Feature boxes container */
           .boxes {
-            height: 250px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            position: absolute;
-            top: 125%;
+            height: 250px; /* Fixed height */
+            width: 100%; /* Full width */
+            display: flex; /* Flexbox layout */
+            justify-content: center; /* Centers horizontally */
+            position: absolute; /* Absolute positioning */
+            top: 125%; /* Moves further down */
           }
+          /* Feature boxes wrapper */
           .bx {
-            height: 1100px;
-            width: 90%;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            z-index: 100;
+            height: 1100px; /* Taller for stacking */
+            width: 90%; /* Wider for mobile */
+            display: flex; /* Flexbox layout */
+            flex-wrap: wrap; /* Allows wrapping */
+            justify-content: center; /* Centers horizontally */
+            z-index: 100; /* Above other elements */
           }
+          /* Individual feature boxes */
           .bx1,
           .bx2,
           .bx3,
           .bx4 {
-            width: 90%;
-            height: 250px;
-            background-color: var(--color1);
-            border-radius: 10px;
-            box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.413);
+            width: 90%; /* Nearly full width for stacking */
+            height: 250px; /* Fixed height */
+            background-color: var(--color1); /* Teal background */
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0px -5px 20px rgba(0, 0, 0, 0.413); /* Shadow for depth */
           }
+          /* Icon area in feature box */
           .bimg {
-            height: 125px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            height: 125px; /* Half of box height */
+            width: 100%; /* Full width */
+            display: flex; /* Flexbox layout */
+            justify-content: center; /* Centers horizontally */
+            align-items: center; /* Centers vertically */
           }
+          /* Text area in feature box */
           .btxt {
-            height: 125px;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: start;
-            font-size: 25px;
-            font-weight: 600;
-            color: var(--textColor);
+            height: 125px; /* Half of box height */
+            width: 100%; /* Full width */
+            display: flex; /* Flexbox layout */
+            justify-content: center; /* Centers horizontally */
+            align-items: start; /* Aligns to top */
+            font-size: 25px; /* Large font */
+            font-weight: 600; /* Bold text */
+            color: var(--textColor); /* Ivory color */
           }
         }
       }
     </style>
+    <!-- Commented-out external stylesheets (not used) -->
     <!-- <link rel="stylesheet" href="tab.css" /> -->
     <!-- <link rel="stylesheet" href="mob.css" /> -->
   </head>
   <body>
+    <!-- Header section containing top bar and navigation -->
     <div class="one">
+      <!-- Top bar with contact info and social icons -->
       <div class="first">
         <div class="content">
           <div class="left">
+            <!-- Email icon -->
             <i class="fa-regular fa-envelope fa-xl" style="color: #ffffff"></i>
+            <!-- Email link -->
             <a href="#">contact@exp.com</a>
+            <!-- Phone icon -->
             <i
               class="fa-solid fa-mobile-screen fa-xl"
               style="color: #ffffff"
             ></i>
+            <!-- Phone number -->
             <p>+1 5589 55488 55</p>
           </div>
           <div class="right">
             <div class="logos">
+              <!-- Twitter icon -->
               <div class="logo">
                 <i
                   class="fa-brands fa-x-twitter fa-xl"
                   style="color: #ffffff"
                 ></i>
               </div>
+              <!-- Facebook icon -->
               <div class="logo">
                 <i
                   class="fa-brands fa-facebook fa-xl"
                   style="color: #ffffff"
                 ></i>
               </div>
+              <!-- Instagram icon -->
               <div class="logo">
                 <i
                   class="fa-brands fa-instagram fa-xl"
                   style="color: #ffffff"
                 ></i>
               </div>
+              <!-- LinkedIn icon -->
               <div class="logo">
                 <i
                   class="fa-brands fa-linkedin fa-xl"
@@ -629,10 +735,13 @@
           </div>
         </div>
       </div>
+      <!-- Navigation bar -->
       <div class="nav">
         <div class="head">
+          <!-- Website name/logo -->
           <div class="name">Impact</div>
           <div class="links">
+            <!-- Navigation links -->
             <div class="lnk">Home</div>
             <div class="lnk">About</div>
             <div class="lnk">Services</div>
@@ -642,50 +751,61 @@
             <div class="lnk">Dropdown</div>
             <div class="lnk">Contact</div>
           </div>
+          <!-- Hamburger menu icon -->
           <div class="hamburger">
             <i class="fa-solid fa-bars fa-xl" style="color: #ffffff"></i>
           </div>
         </div>
       </div>
     </div>
+    <!-- Hero section -->
     <div class="two">
       <div class="main">
         <div class="det">
           <div class="txt">
+            <!-- Main heading -->
             <div class="txt1">Welcome to Impact</div>
+            <!-- Subtext -->
             <div class="txt2">
               Sed autem laudantium dolores. Voluptatem itaque ea consequatur
               eveniet. Eum quas beatae cumque eum quaerat.
             </div>
             <div class="btns">
+              <!-- "Get Started" button -->
               <button id="start">GET START</button>
+              <!-- "Watch Video" button with icon -->
               <button id="video">
                 <i
                   class="fa-regular fa-circle-play fa-xl"
                   style="color: #ffffff"
-                ></i
-                >Watch Video
+                ></i>
+                Watch Video
               </button>
             </div>
           </div>
+          <!-- Hero image -->
           <div class="img"><img src="download.svg" alt="" /></div>
         </div>
       </div>
     </div>
+    <!-- Feature boxes section -->
     <div class="boxes">
       <div class="bx">
+        <!-- Feature box 1 -->
         <div class="bx1">
           <div class="bimg">
             <i class="fa-solid fa-chalkboard fa-2xl" style="color: #ffffff"></i>
           </div>
           <div class="btxt">Lorem Ipsum</div>
         </div>
+        <!-- Feature box 2 -->
         <div class="bx2">
           <div class="bimg">
             <i class="fa-regular fa-gem fa-2xl" style="color: #ffffff"></i>
           </div>
           <div class="btxt">Sed ut perspiciatis</div>
         </div>
+        <!-- Feature box 3 -->
         <div class="bx3">
           <div class="bimg">
             <i
@@ -695,6 +815,7 @@
           </div>
           <div class="btxt">Magni Dolores</div>
         </div>
+        <!-- Feature box 4 -->
         <div class="bx4">
           <div class="bimg">
             <i class="fa-solid fa-campground fa-2xl" style="color: #ffffff"></i>
